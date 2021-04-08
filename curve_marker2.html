@@ -1,0 +1,59 @@
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+</head>
+<body>
+<div class="wrapper">
+<div id="myDiv"></div>
+		
+<script>
+		
+		
+var pointCount = 632;
+var i, r;
+
+var x = [];
+var y = [];
+var z = [];
+var c = [];
+
+for(i = 0; i < pointCount; i++) 
+{
+r1=8;
+r2=3;
+x.push((r1+r2*Math.cos(i/6))*Math.cos(i/100))
+y.push((r1+r2*Math.cos(i/6))*Math.sin(i/100))
+z.push(r2*Math.sin(i/6))
+
+   c.push(i)
+}
+
+Plotly.newPlot('myDiv', [{
+  type: 'scatter3d',
+  mode: 'lines+markers',
+  x: x,
+  y: y,
+  z: z,
+  line: {
+    width: 6,
+    color: c,
+    colorscale: "Viridis"},
+  marker: {
+    size: 3.5,
+    color: c,
+    colorscale: "Greens",
+    cmin: -20,
+    cmax: 50
+  }},                  
+]);
+
+			
+</script>
+
+
+</div>
+</body>
+<html>
